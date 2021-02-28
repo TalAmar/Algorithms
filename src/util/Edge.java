@@ -39,9 +39,7 @@ public class Edge<T, E> {
 	/*-----------------------------------------------------------*/
 
 	public boolean equals(Object obj) {
-		if (obj instanceof Edge)
-			return false;
-		if(obj == null)
+		if (!(obj instanceof Edge))
 			return false;
 		@SuppressWarnings("unchecked")
 		Edge<T, E> e = (Edge<T, E>) obj;
