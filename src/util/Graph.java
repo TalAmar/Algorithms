@@ -7,6 +7,7 @@ public class Graph<T, E> {
 	private List<List<Vertex<T>>> vertex_list;
 	private List<Edge<T, E>> edge_list;
 	private is_directed direction;
+	protected static int key = 0; // key for vertices
 
 	private enum is_directed {
 		DIRECTED, NOT_DIRECTED;
@@ -26,15 +27,16 @@ public class Graph<T, E> {
 		this.direction = direction;
 	}
 
-	/*adds a vertex to the graph*/
+	/* adds a vertex to the graph */
 	public boolean addVertex(Vertex<T> v) {
-        List<Vertex<T>> temp = new ArrayList<>();
-        temp.add(v);
-        if (vertex_list.contains(temp))
-            return false;
-        vertex_list.add(temp);
-        return true;
-    }
+		List<Vertex<T>> temp = new ArrayList<>();
+		temp.add(v);
+		System.out.println(temp.get(0).getKey());
+		if (vertex_list.contains(temp))
+			return false;
+		vertex_list.add(temp);
+		return true;
+	}
 
 	public static void main(String[] args) {
 		Graph<Integer, Integer> g = new Graph<Integer, Integer>(is_directed.NOT_DIRECTED);

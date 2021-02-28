@@ -1,11 +1,11 @@
 package util;
 
 public class Vertex<T> {
-	private static int key = 0;
+	private int vertexKey;
 	private T value;
 
 	public Vertex(T value) {
-		key = key++;
+		vertexKey = Graph.key++;
 		this.value = value;
 	}
 
@@ -16,23 +16,21 @@ public class Vertex<T> {
 	}
 
 	public int getKey() {
-		return key;
+		return vertexKey;
 	}
 
 	public void setValue(T value) {
 		this.value = value;
 	}
 	/*-----------------------------------------------------------*/
-
+	
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Vertex)
-			return false;
-		if(obj == null)
+		if(!(obj instanceof Vertex))
 			return false;
 		@SuppressWarnings("unchecked")
 		Vertex<T> v = (Vertex<T>) obj;
-		if (Vertex.key == v.getKey())
+		if (vertexKey == v.getKey())
 			return true;
 		return false;
 	}
