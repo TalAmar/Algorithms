@@ -26,20 +26,21 @@ public class Graph<T, E> {
 		this.direction = direction;
 	}
 
+	/*adds a vertex to the graph*/
 	public boolean addVertex(Vertex<T> v) {
-		List<Vertex<T>> temp = new ArrayList<>();
-		temp.add(v);
-		for (List<Vertex<T>> ver : vertex_list)
-			if (ver.get(0).equals(v))
-				return false;
-		vertex_list.add(temp);
-		return true;
-	}
+        List<Vertex<T>> temp = new ArrayList<>();
+        temp.add(v);
+        if (vertex_list.contains(temp))
+            return false;
+        vertex_list.add(temp);
+        return true;
+    }
 
 	public static void main(String[] args) {
 		Graph<Integer, Integer> g = new Graph<Integer, Integer>(is_directed.NOT_DIRECTED);
 		Vertex<Integer> v = new Vertex<Integer>(1);
 		System.out.println(g.addVertex(v));
 		System.out.println(g.addVertex(v));
+		System.out.println(g.addVertex(new Vertex<Integer>(1)));
 	}
 }
