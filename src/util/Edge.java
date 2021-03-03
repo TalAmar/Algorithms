@@ -5,14 +5,21 @@ public class Edge<T, E> {
 	private Vertex<T> v2;
 	private E value;
 
+	/* builder for edge with value */
 	public Edge(Vertex<T> v1, Vertex<T> v2, E value) {
 		this.v1 = v1;
 		this.v2 = v2;
 		this.value = value;
 	}
 
+	/* builder for edge without value */
+	public Edge(Vertex<T> v1, Vertex<T> v2) {
+		this.v1 = v1;
+		this.v2 = v2;
+	}
+
 	/* Getters and Setters */
-	/*-----------------------------------------------------------*/
+	/* v-----------------------------------------------------------v */
 	public Vertex<T> getV1() {
 		return v1;
 	}
@@ -36,7 +43,7 @@ public class Edge<T, E> {
 	public void setValue(E value) {
 		this.value = value;
 	}
-	/*-----------------------------------------------------------*/
+	/* ^-----------------------------------------------------------^ */
 
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Edge))
